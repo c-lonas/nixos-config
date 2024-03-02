@@ -10,10 +10,11 @@
     ];
 
 
-  # Bootloader.
+  # Bootloader
   boot.loader.systemd-boot.enable = true; boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "north-ponto"; # Define your hostname.
+  # Define Hostname
+  networking.hostName = "north-ponto";
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -66,13 +67,6 @@
   users.users.battery = { isNormalUser = true; description = "Chase Lonas"; extraGroups = [ "networkmanager" "wheel" ]; packages = with pkgs; [
       firefox
     ];
-  };
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "battery" = import ./home.nix;
-    };
   };
 
   # Allow unfree packages

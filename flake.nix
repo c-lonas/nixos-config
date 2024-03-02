@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-colors.url = "github:misterio77/nix-colors";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -19,9 +20,23 @@
     
       nixosConfigurations = {
         north-ponto = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
+          specialArgs = {
+            inherit inputs;
+            inherit nix-colors;
+            };
           modules = [ 
             ./hosts/north-ponto/configuration.nix
+            home-manager.nixosModules.home-manager {
+              home-manager = {
+                extraSpecialArgs = { 
+                  inherit inputs; 
+                  inherit nix-colors;
+                  };
+                users = {
+                  "battery" = import ./home.nix;
+                };
+              };
+            }
           ];
         };
       };
