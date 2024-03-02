@@ -14,6 +14,7 @@ in
 
   imports = [
     ../../modules/home-manager/kitty.nix
+    inputs.nix-colors.homeManagerModules.default
   ];
 
   # This value determines the Home Manager release that your configuration is
