@@ -1,17 +1,22 @@
 # Edit this configuration file to define what should be installed on your system.  Help is available in the configuration.nix(5) man page and in the 
 # NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 { imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix ];
+      ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
+    ];
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true; boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
+  networking.hostName = "north-ponto"; # Define your hostname.
+
+  # Enable Flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Configure network proxy if necessary networking.proxy.default = "http://user:password@proxy:port/"; networking.proxy.noProxy = 
   # "127.0.0.1,localhost,internal.domain";
@@ -63,19 +68,30 @@
     ];
   };
 
+  home-manager = {
+    specialArgs = { inherit inputs; };
+    users = {
+      "battery" = import ./home.nix;
+    };
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Enable Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # List packages installed in system profile. To search, run: $ nix search wget
   environment.systemPackages = with pkgs; [
+    # Core
     git
     vim
+    # Text Editors / IDEs
     neovim
     vscode
+    # Terminal
     kitty
+    # Workflow
+    dropbox
+    # Utility
+    wofi
     neofetch
     curl
     wget
@@ -83,6 +99,8 @@
 
   # Set the default editor to vim
   environment.variables.EDITOR = "vim";
+
+  
 
   # Some programs need SUID wrappers, can be configured further or are started in user sessions. programs.mtr.enable = true; programs.gnupg.agent = {
   #   enable = true; enableSSHSupport = true;
