@@ -17,13 +17,14 @@
     in
     {
     
-      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+      nixosConfigurations = {
+        north-ponto = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit inputs;};
           modules = [ 
-            ./configuration.nix
-            inputs.home-manager.nixosModules.default
+            ./hosts/north-ponto/configuration.nix
           ];
         };
+      };
 
     };
 }

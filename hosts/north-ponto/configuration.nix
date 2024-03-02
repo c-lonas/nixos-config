@@ -69,7 +69,7 @@
   };
 
   home-manager = {
-    specialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs; };
     users = {
       "battery" = import ./home.nix;
     };
