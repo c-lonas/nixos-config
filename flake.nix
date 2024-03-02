@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -22,7 +22,6 @@
         north-ponto = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
-            inherit nix-colors;
             };
           modules = [ 
             ./hosts/north-ponto/configuration.nix
@@ -30,11 +29,8 @@
               home-manager = {
                 extraSpecialArgs = { 
                   inherit inputs; 
-                  inherit nix-colors;
+                  inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
                   };
-                users = {
-                  "battery" = import ./home.nix;
-                };
               };
             }
           ];

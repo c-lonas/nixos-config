@@ -1,10 +1,16 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, gtkThemeFromScheme, ... }:
 
+let
+  inherit (import ./options.nix)
+  theme;
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "battery";
   home.homeDirectory = "/home/battery";
+
+  colorScheme = inputs.nix-colors.colorSchemes."${theme}";
 
   imports = [
     ../../modules/home-manager/kitty.nix

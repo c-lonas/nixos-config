@@ -69,6 +69,12 @@
     ];
   };
 
+  home-manager = {
+    users = {
+      "battery" = import ./home.nix;
+    };
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
