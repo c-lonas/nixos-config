@@ -1,5 +1,11 @@
 let 
     hostname = "north-ponto";
-in {
     theme = "catppuccin-mocha";
+in {
+
+    # Define Hostname
+    networking.hostName = "$hostname";
+
+    # Define Theme
+    theme = "$theme";
 }

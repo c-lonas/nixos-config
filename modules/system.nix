@@ -1,6 +1,14 @@
 { config, pkgs, lib, ... }:
 
 {
+    
+    # Enable Flakes
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+    # Bootloader
+    boot.loader.systemd-boot.enable = true; boot.loader.efi.canTouchEfiVariables = true;
+
+
     # Set your time zone.
     time.timeZone = "America/Los_Angeles";
 
