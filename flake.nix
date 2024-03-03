@@ -26,12 +26,10 @@
           modules = [ 
             ./hosts/north-ponto/configuration.nix
             home-manager.nixosModules.home-manager {
-              home-manager = {
-                extraSpecialArgs = { 
-                  inherit inputs; 
-                  inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
-                  };
-              };
+              home-manager.extraSpecialArgs = { 
+                inherit inputs; 
+                inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
+                };
             }
           ];
         };
