@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   
   # List system packages
@@ -15,6 +17,8 @@
     curl
     wget
     btop
+    obsidian
+    waybar
   ];
 
   # Allow unfree packages

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, lib, inputs, ... }:
 
 let 
   hostname = "north-ponto";
@@ -32,8 +32,5 @@ in
       "battery" = import ./home.nix;
     };
   };
-
-  
-
   
 }

@@ -14,6 +14,7 @@ in
 
   imports = [
     ../../modules/home-manager/kitty.nix
+    ../../modules/home-manager/waybar.nix
     inputs.nix-colors.homeManagerModules.default
   ];
 
