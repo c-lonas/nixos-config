@@ -16,6 +16,7 @@ in
     ../../modules/home-manager/kitty.nix
     ../../modules/home-manager/waybar.nix
     ../../modules/home-manager/hyprland.nix
+    ../../modules/home-manager/wofi.nix
     inputs.nix-colors.homeManagerModules.default
   ];
 

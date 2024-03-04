@@ -4,7 +4,7 @@
   programs.wofi = {
     enable = true;
     package = pkgs.wofi;
-    config = {
+    settings = {
       show = "drun";
       width = "40%";
       height = "50%";
@@ -27,7 +27,7 @@
       }
 
       * {
-        font-family: "Fira Code";
+        font-family: "JetBrainsMono Nerd Font;
         color: #fff;
       }
 
