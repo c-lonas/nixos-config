@@ -19,6 +19,7 @@
     btop
     obsidian
     waybar
+    swww
   ];
 
   # Allow unfree packages
