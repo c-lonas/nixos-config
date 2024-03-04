@@ -20,6 +20,7 @@
     obsidian
     waybar
     swww
+    polkit-kde-agent
   ];
 
   # Allow unfree packages

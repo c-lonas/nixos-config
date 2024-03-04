@@ -15,6 +15,9 @@ in with lib; {
       monitor=,preferred,auto,1
       windowrule = fullscreen, ^(wlogout)$
       windowrule = animation fade,^(wlogout)$
+      misc {
+        disable_hyprland_logo = true
+      }
       general {
         gaps_in = 6
         gaps_out = 8
@@ -55,7 +58,7 @@ in with lib; {
         animation = windowsOut, 1, 5, winOut, slide
         animation = windowsMove, 1, 5, wind, slide
         animation = border, 1, 1, liner
-        animation = borderangle, 1, 30, liner, loop
+        animation = borderangle, 1, 300, liner, loop
         animation = fade, 1, 10, default
         animation = workspaces, 1, 5, wind
       }
@@ -101,7 +104,6 @@ in with lib; {
       bind = ${modifier},D,exec,discord
       bind = ${modifier},O,exec,obs
       bind = ${modifier},G,exec,gimp
-      bind = ${modifier}SHIFT,G,exec,godot4
       bind = ${modifier},T,exec,thunar
       bind = ${modifier},M,exec,spotify
       bind = ${modifier},Q,killactive,
