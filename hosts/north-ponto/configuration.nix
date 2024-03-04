@@ -7,7 +7,6 @@ in
     [
       ./hardware-configuration.nix
       ../../modules/system.nix
-      ../../modules/hyprland.nix
       ../../modules/packages.nix
       inputs.home-manager.nixosModules.default
     ];

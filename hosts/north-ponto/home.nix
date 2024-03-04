@@ -15,6 +15,7 @@ in
   imports = [
     ../../modules/home-manager/kitty.nix
     ../../modules/home-manager/waybar.nix
+    ../../modules/home-manager/hyprland.nix
     inputs.nix-colors.homeManagerModules.default
   ];
 
