@@ -15,9 +15,11 @@ in with lib; {
       monitor=,preferred,auto,1
       windowrule = fullscreen, ^(wlogout)$
       windowrule = animation fade,^(wlogout)$
+
       misc {
         disable_hyprland_logo = true
       }
+
       general {
         gaps_in = 6
         gaps_out = 8
@@ -57,13 +59,11 @@ in with lib; {
         animation = windowsIn, 1, 6, winIn, slide
         animation = windowsOut, 1, 5, winOut, slide
         animation = windowsMove, 1, 5, wind, slide
-        animation = border, 1, 1, liner
-        animation = borderangle, 1, 300, liner, loop
         animation = fade, 1, 10, default
         animation = workspaces, 1, 5, wind
       }
       decoration {
-        rounding = 10
+        rounding = 5
         drop_shadow = false
         blur {
             enabled = true
@@ -95,7 +95,7 @@ in with lib; {
         new_is_master = true
       }
       bind = ${modifier},Return,exec,kitty
-      bind = ${modifier}SHIFT,Return,exec,wofi
+      bind = ${modifier},SPACE,exec,wofi
       bind = ${modifier}SHIFT,W,exec,web-search
       bind = ${modifier}SHIFT,N,exec,swaync-client -rs
       bind = ${modifier},W,exec,firefox
