@@ -13,8 +13,26 @@ in with lib;
             layer = "top";
             position = "top";
 
-            modules-left = [ "cpu" "memory" ];
-            modules-right = [ "battery" "clock" ];
+            modules-center = [ "hyprland/workspaces" ] ;
+            modules-left = [ "hyprland/window" "cpu" "memory" ];
+            modules-right = [ "battery" "network" "clock" ];
+
+
+            "hyprland/workspaces" = {
+                format = "{name}"; # "{icon}";
+                format-icons = {
+                    default = " ";
+                    active = " ";
+                    urgent = " ";
+                };
+                on-scroll-up = "hyprctl dispatch workspace e+1";
+                on-scroll-down = "hyprctl dispatch workspace e-1";
+            };
+            "hyprland/window" = {
+                max-length = 25;
+                separate-outputs = false;
+            };
+
 
             "clock" = {
                 format = ''{: %I:%M %p}'';
@@ -43,6 +61,14 @@ in with lib;
                 on-click = "";
                 tooltip = false;
             };
+            "network" = {
+                format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
+                format-ethernet = " {bandwidthDownOctets}";
+                format-wifi = "{icon} {signalStrength}%";
+                format-disconnected = "󰤮";
+                tooltip = false;
+            };
+
         }];
         style = concatStrings [
             ''      * {	font-size: 16px;	font-family: JetBrainsMono Nerd Font, Font Awesome, sans-serif;    	font-weight: bold;      }      

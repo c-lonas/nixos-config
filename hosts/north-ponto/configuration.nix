@@ -9,7 +9,6 @@ in
       ./hardware-configuration.nix
       ../../modules/system.nix
       ../../modules/packages.nix
-      ../../scripts/wallsetter.nix
       inputs.home-manager.nixosModules.default
     ];
 

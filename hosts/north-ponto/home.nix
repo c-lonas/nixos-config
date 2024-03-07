@@ -15,7 +15,7 @@ in
     ../../modules/home-manager/waybar.nix
     ../../modules/home-manager/hyprland.nix
     ../../modules/home-manager/wofi.nix
-    ../../modules/home-manager/scripts/wallsetter.nix
+    # ../../modules/home-manager/scripts/wallsetter.nix
 
     inputs.nix-colors.homeManagerModules.default
   ];
