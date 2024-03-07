@@ -12,8 +12,8 @@ in
 
   imports = [
     ../../modules/home-manager/kitty.nix
-    ../../modules/home-manager/waybar.nix
     ../../modules/home-manager/hyprland.nix
+    ../../modules/home-manager/waybar.nix
     ../../modules/home-manager/wofi.nix
     # ../../modules/home-manager/scripts/wallsetter.nix
 
