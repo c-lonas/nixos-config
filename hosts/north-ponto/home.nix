@@ -5,8 +5,6 @@ let
   theme;
 in
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = "battery";
   home.homeDirectory = "/home/battery";
 
@@ -17,6 +15,8 @@ in
     ../../modules/home-manager/waybar.nix
     ../../modules/home-manager/hyprland.nix
     ../../modules/home-manager/wofi.nix
+    ../../modules/home-manager/scripts/wallsetter.nix
+
     inputs.nix-colors.homeManagerModules.default
   ];
 
