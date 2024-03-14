@@ -15,11 +15,11 @@ in with lib;
 
             modules-center = [ "hyprland/workspaces" ] ;
             modules-left = [ "hyprland/window" "cpu" "memory" ];
-            modules-right = [ "battery" "network" "clock" ];
+            modules-right = [ "battery" "network" "clock" "tray" ];
 
 
             "hyprland/workspaces" = {
-                format = "{name}"; # "{icon}";
+                format = "{icon}"; # "{name}";
                 format-icons = {
                     default = " ";
                     active = " ";
@@ -67,6 +67,9 @@ in with lib;
                 format-wifi = "{icon} {signalStrength}%";
                 format-disconnected = "󰤮";
                 tooltip = false;
+            };
+            "tray" = {
+                spacing = 12;
             };
 
         }];

@@ -15,17 +15,17 @@ in
     ../../modules/home-manager/hyprland.nix
     ../../modules/home-manager/waybar.nix
     ../../modules/home-manager/wofi.nix
-    # ../../modules/home-manager/scripts/wallsetter.nix
 
     inputs.nix-colors.homeManagerModules.default
   ];
 
  
-  home.stateVersion = "23.11"; # Don't Change
+  
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    pkgs.callPackage ../../scripts/wallsetter.nix {}
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -39,9 +39,13 @@ in
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
+    (pkgs.writeShellScriptBin "wallsetter" ''
+
+      WALLPAPER="/home/battery/shaded_landscape.png"
+      WALLPAPER2="/home/battery/nix-magenta.png"
+
+      ${pkgs.swww}/bin/swww img "$WALLPAPER"
+    '')
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -80,4 +84,6 @@ in
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  home.stateVersion = "23.11"; # Don't Change
 }

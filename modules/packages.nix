@@ -21,6 +21,7 @@
     waybar
     swww
     polkit-kde-agent
+    networkmanagerapplet
   ];
 
   # Allow unfree packages

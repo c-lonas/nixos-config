@@ -21,10 +21,38 @@
     # Enable CUPS to print documents.
     services.printing.enable = true;
 
-    # Enable sound with pipewire.
-    sound.enable = true; hardware.pulseaudio.enable = false; security.rtkit.enable = true; services.pipewire = {
-        enable = true; alsa.enable = true; alsa.support32Bit = true; pulse.enable = true;
-        # If you want to use JACK applications, uncomment this jack.enable = true;
+    # Enable bluetooth
+    hardware.bluetooth.enable = true;
+
+    # Enable openSSH
+    services.openssh.enable = true;
+
+    # Enable fstrim
+    services.fstrim.enable = true;
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal
+      ];
+      configPackages = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-hyprland
+        pkgs.xdg-desktop-portal
+      ];
+    };
+
+    # Enable sound with pipewire
+    sound.enable = true; 
+    hardware.pulseaudio.enable = false; 
+    security.rtkit.enable = true; 
+    services.pipewire = {
+        enable = true; 
+        alsa.enable = true; 
+        alsa.support32Bit = true; 
+        pulse.enable = true;
+        jack.enable = true;
     };
 
     # Select internationalisation properties.
@@ -50,6 +78,8 @@
     nix.settings.trusted-public-keys = [
     "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
+
+
 
 
   system.stateVersion = "23.11"; # Don't change
