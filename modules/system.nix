@@ -14,10 +14,17 @@
     # Enable networking
     networking.networkmanager.enable = true;
 
-    # Configure keymap in X11
-    services.xserver = { layout = "us"; xkbVariant = "";
+    # 
+    services.xserver = {
+      enable = true;
+      xkb = { layout = "us"; variant = "";
+      };
+      libinput.enable = true;
+      displayManager.sddm = {
+        enable = true;
+        wayland.enable = true;
+      }
     };
-
     # Enable CUPS to print documents.
     services.printing.enable = true;
 
@@ -53,6 +60,19 @@
         alsa.support32Bit = true; 
         pulse.enable = true;
         jack.enable = true;
+    };
+
+
+    services.tumbler.enable = true;
+    services.gnome.gnome-keyring.enable = true;
+    security.pam.services.swaylock = {
+      text = ''
+        auth include login
+      '';
+    };
+
+    environment.variables = {
+      POLKIT_BIN = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
     };
 
     # Select internationalisation properties.

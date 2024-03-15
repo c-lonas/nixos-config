@@ -25,7 +25,7 @@ in
   # services.xserver.displayManager.gdm.enable = true; services.xserver.desktopManager.gnome.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.battery = { isNormalUser = true; description = "Chase Lonas"; extraGroups = [ "networkmanager" "wheel" ]; 
+  users.users.battery = { isNormalUser = true; description = "Chase Lonas"; extraGroups = [ "networkmanager" "wheel" "users"]; 
   };
 
   home-manager = {

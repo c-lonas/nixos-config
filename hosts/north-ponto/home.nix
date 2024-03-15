@@ -11,8 +11,10 @@ in
   colorScheme = inputs.nix-colors.colorSchemes."${theme}";
 
   imports = [
+    ../../modules/home-manager/bash.nix
     ../../modules/home-manager/kitty.nix
     ../../modules/home-manager/hyprland.nix
+    ../../modules/home-manager/swaylock.nix
     ../../modules/home-manager/waybar.nix
     ../../modules/home-manager/wofi.nix
 
@@ -29,6 +31,8 @@ in
     pkgs.material-icons
     pkgs.symbola
     pkgs.font-awesome
+    pkgs.swayidle
+    pkgs.swaylock
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -88,7 +92,7 @@ in
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  nix.pkgs.config.allowUnfree = true; # Duplicate of line in packgages.nix, remember to resolve
+  nixpkgs.config.allowUnfree = true; # Duplicate of line in packgages.nix, remember to resolve
 
   home.stateVersion = "23.11"; # Don't Change
 }

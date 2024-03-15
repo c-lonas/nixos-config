@@ -20,9 +20,10 @@
     obsidian
     waybar
     swww
-    polkit-kde-agent
+    polkit_gnome
     networkmanagerapplet
-
+    lsd
+    lshw
     
   ];
 
