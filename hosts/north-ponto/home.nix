@@ -26,13 +26,14 @@ in
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.noto-fonts-color-emoji
-    pkgs.material-icons
-    pkgs.symbola
-    pkgs.font-awesome
-    pkgs.swayidle
-    pkgs.swaylock
+  home.packages = with pkgs; [
+    noto-fonts-color-emoji
+    material-icons
+    symbola
+    font-awesome
+    swayidle
+    swaylock
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
