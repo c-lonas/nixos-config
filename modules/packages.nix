@@ -23,10 +23,7 @@
     polkit-kde-agent
     networkmanagerapplet
 
-    noto-fonts-color-emoji
-    material-icons
-    symbola
-    font-awesome
+    
   ];
 
   # Allow unfree packages
