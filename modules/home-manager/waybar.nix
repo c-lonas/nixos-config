@@ -14,8 +14,8 @@ in with lib;
             position = "top";
 
             modules-center = [ "hyprland/workspaces" ] ;
-            modules-left = [ "hyprland/window" "cpu" "memory" ];
-            modules-right = [ "battery" "network" "clock" "tray" ];
+            modules-left = [ "hyprland/window" "pulseaudio" "cpu" "memory" ];
+            modules-right = [ "custom/exit" "idle_inhibitor" "battery" "network" "clock" "tray" ];
 
 
             "hyprland/workspaces" = {
@@ -49,6 +49,10 @@ in with lib;
                 format = " {usage:2}%";
                 tooltip = true;
             };
+            "disk" = {
+                format = " {free}";
+                tooltip = true;
+            };
             "battery" = {
                 states = {
                 warning = 30;
@@ -68,8 +72,40 @@ in with lib;
                 format-disconnected = "󰤮";
                 tooltip = false;
             };
+            "pulseaudio" = {
+                format = "{icon} {volume}% {format_source}";
+                format-bluetooth = "{volume}% {icon} {format_source}";
+                format-bluetooth-muted = " {icon} {format_source}";
+                format-muted = " {format_source}";
+                format-source = " {volume}%";
+                format-source-muted = "";
+                format-icons = {
+                headphone = "";
+                hands-free = "";
+                headset = "";
+                phone = "";
+                portable = "";
+                car = "";
+                default = ["" "" ""];
+                };
+                on-click = "sleep 0.1 && pavucontrol";
+            };
             "tray" = {
                 spacing = 12;
+            };
+            "custom/exit" = {
+                tooltip = false;
+                format = "";
+                on-click = "sleep 0.1 && wlogout";
+            };
+
+            "idle_inhibitor" = {
+                format = "{icon}";
+                format-icons = {
+                    activated = "";
+                    deactivated = "";
+                };
+                tooltip = "true";
             };
 
         }];
