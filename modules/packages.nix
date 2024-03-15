@@ -25,6 +25,10 @@
     lsd
     lshw
     
+    symbola
+    font-awesome
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+
   ];
 
   # Allow unfree packages

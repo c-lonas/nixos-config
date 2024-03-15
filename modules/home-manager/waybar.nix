@@ -109,9 +109,15 @@ in with lib;
             };
 
         }];
-        style = concatStrings [
-            ''      * {	font-size: 16px;	font-family: JetBrainsMono Nerd Font, Font Awesome, sans-serif;    	font-weight: bold;      }      
-            window#waybar {	background-color: rgba(26,27,38,0);	border-bottom: 1px solid rgba(26,27,38,0);	border-radius: 0px;	color: #${palette.base0F};      }      
+        style = concatStrings [''
+            * {	
+                font-size: 16px;	
+                font-family: JetBrainsMono Nerd Font, Font Awesome, sans-serif;
+                font-weight: bold;      
+            }      
+            window#waybar {	
+                background-color: rgba(26,27,38,0);	border-bottom: 1px solid rgba(26,27,38,0);	border-radius: 0px;	color: #${palette.base0F};     
+            }      
             #workspaces {	background: #${palette.base00};	margin: 5px;	padding: 0px 1px;	border-radius: 15px;	border: 0px;	font-style: normal;	color: #${palette.base00};      }      
             #workspaces button {	padding: 0px 5px;	margin: 4px 3px;	border-radius: 15px;	border: 0px;	color: #${palette.base00};	background: linear-gradient(45deg, #${palette.base0C}, #${palette.base0D}, #${palette.base0E});	opacity: 0.5;	transition: ${betterTransition};      }      
             #workspaces button.active {	padding: 0px 5px;	margin: 4px 3px;	border-radius: 15px;	border: 0px;	color: #${palette.base00};	background: linear-gradient(45deg, #${palette.base0D}, #${palette.base0E});	opacity: 1.0;	min-width: 40px;	transition: ${betterTransition};      }      
