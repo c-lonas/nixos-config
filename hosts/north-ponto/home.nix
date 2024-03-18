@@ -17,6 +17,7 @@ in
     ../../modules/home-manager/swaylock.nix
     ../../modules/home-manager/waybar.nix
     ../../modules/home-manager/wofi.nix
+    ../../modules/home-manager/wlogout.nix
 
     inputs.nix-colors.homeManagerModules.default
   ];
@@ -27,6 +28,7 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    pavucontrol
     noto-fonts-color-emoji
     material-icons
     symbola

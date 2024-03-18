@@ -25,8 +25,10 @@
     lsd
     lshw
     
+    
     symbola
     font-awesome
+    noto-fonts-color-emoji
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
 
   ];
