@@ -71,6 +71,15 @@ in
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".local/share/fonts" = {
+      source = ./files/fonts;
+      recursive = true; 
+    };
+    ".config/wlogout/icons" = {
+      source = ./files/wlogout;
+      recursive = true;
+    };
+
   };
 
   # Home Manager can also manage your environment variables through
