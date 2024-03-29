@@ -72,11 +72,11 @@ in
     #   org.gradle.daemon.idletimeout=3600000
     # '';
     ".local/share/fonts" = {
-      source = ./files/fonts;
+      source = ../../modules/home-manager/files/fonts;
       recursive = true; 
     };
     ".config/wlogout/icons" = {
-      source = ./files/wlogout;
+      source = ../../modules/home-manager/files/wlogout;
       recursive = true;
     };
 
