@@ -18,7 +18,6 @@ in
     ../../modules/home-manager/waybar.nix
     ../../modules/home-manager/wofi.nix
     ../../modules/home-manager/wlogout.nix
-    ../../scripts/wallsetter.nix
     inputs.nix-colors.homeManagerModules.default
   ];
 
@@ -36,6 +35,7 @@ in
     swayidle
     swaylock
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (import ../../scripts/wallsetter.nix)
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
