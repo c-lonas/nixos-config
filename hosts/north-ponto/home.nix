@@ -35,7 +35,7 @@ in
     swayidle
     swaylock
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    (import ../../scripts/wallsetter.nix)
+    (import ../../scripts/wallsetter.nix { inherit pkgs; })
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
