@@ -14,7 +14,7 @@ in with lib;
             position = "top";
 
             modules-center = [ "hyprland/workspaces" ] ;
-            modules-left = [ "hyprland/window" "pulseaudio" "cpu" "memory" ];
+            modules-left = [ "custom/startmenu" "hyprland/window" "pulseaudio" "cpu" "memory" ];
             modules-right = [ "custom/exit" "idle_inhibitor" "battery" "network" "clock" "tray" ];
 
 
@@ -97,6 +97,11 @@ in with lib;
                 tooltip = false;
                 format = "";
                 on-click = "sleep 0.1 && wlogout";
+            };
+            "custom/startmenu" = {
+                tooltip = false;
+                format = " ";
+                on-click = "sleep 0.1 && wofi-launcher";
             };
 
             "idle_inhibitor" = {
