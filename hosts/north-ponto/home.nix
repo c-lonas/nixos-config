@@ -18,7 +18,7 @@ in
     ../../modules/home-manager/waybar.nix
     ../../modules/home-manager/wofi.nix
     ../../modules/home-manager/wlogout.nix
-
+    ../../scripts/wallsetter.nix
     inputs.nix-colors.homeManagerModules.default
   ];
 
@@ -49,13 +49,15 @@ in
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
-    (pkgs.writeShellScriptBin "wallsetter" ''
 
-      WALLPAPER="/home/battery/shaded_landscape.png"
-      WALLPAPER2="/home/battery/nix-magenta.png"
 
-      ${pkgs.swww}/bin/swww img "$WALLPAPER2"
-    '')
+    # (pkgs.writeShellScriptBin "wallsetter" ''
+
+    #   WALLPAPER="/home/battery/shaded_landscape.png"
+    #   WALLPAPER2="/home/battery/nix-magenta.png"
+
+    #   ${pkgs.swww}/bin/swww img "$WALLPAPER2"
+    # '')
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
