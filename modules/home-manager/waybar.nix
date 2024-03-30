@@ -101,7 +101,7 @@ in with lib;
             "custom/startmenu" = {
                 tooltip = false;
                 format = " ";
-                on-click = "sleep 0.1 && wofi-launcher";
+                on-click = "sleep 0.1 && wofi";
             };
 
             "idle_inhibitor" = {
