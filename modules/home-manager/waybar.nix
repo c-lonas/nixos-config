@@ -15,7 +15,7 @@ in with lib;
 
             modules-center = [ "hyprland/workspaces" ] ;
             modules-left = [ "custom/startmenu" "hyprland/window" "pulseaudio" "cpu" "memory" ];
-            modules-right = [ "idle_inhibitor" "battery" "network" "clock" "tray" "custom/exit" ];
+            modules-right = [ "battery" "network" "clock" "tray" "custom/exit" "idle_inhibitor" ];
 
 
             "hyprland/workspaces" = {
