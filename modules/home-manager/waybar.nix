@@ -15,7 +15,7 @@ in with lib;
 
             modules-center = [ "hyprland/workspaces" ] ;
             modules-left = [ "custom/startmenu" "hyprland/window" "pulseaudio" "cpu" "memory" ];
-            modules-right = [ "battery" "network" "clock" "tray" "custom/exit" "idle_inhibitor" ];
+            modules-right = [ "battery" "network" "clock" "custom/exit" "idle_inhibitor" "tray"];
 
 
             "hyprland/workspaces" = {
@@ -32,7 +32,6 @@ in with lib;
                 max-length = 25;
                 separate-outputs = false;
             };
-
 
             "clock" = {
                 format = ''{: %I:%M %p}'';
