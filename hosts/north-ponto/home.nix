@@ -36,6 +36,7 @@ in
     swaylock
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     (import ../../scripts/wallsetter.nix { inherit pkgs; })
+    (import ../../scripts/themechange.nix { inherit pkgs; })
 
   ];
 
