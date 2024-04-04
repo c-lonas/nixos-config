@@ -24,6 +24,7 @@
     networkmanagerapplet
     lsd
     lshw
+    unzip
     
     
     symbola
