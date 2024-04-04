@@ -61,6 +61,10 @@ in
       source = ../../modules/home-manager/files/wlogout;
       recursive = true;
     };
+    ".config/swaylock" = {
+      source = ../../modules/home-manager/files/swaylock;
+      recursive = true;
+    };
 
   };
 
