@@ -100,7 +100,7 @@ in with lib;
             "custom/startmenu" = {
                 tooltip = false;
                 format = " ";
-                on-click = "sleep 0.1 && wofi";
+                on-click = "sleep 0.1 && theme-selector";
             };
 
             "idle_inhibitor" = {

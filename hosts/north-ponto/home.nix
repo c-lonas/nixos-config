@@ -37,6 +37,7 @@ in
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     (import ../../scripts/wallsetter.nix { inherit pkgs; })
     (import ../../scripts/themechange.nix { inherit pkgs; })
+    (import ../../scripts/themeselector.nix { inherit pkgs; })
 
   ];
 
@@ -56,6 +57,9 @@ in
     ".local/share/fonts" = {
       source = ../../modules/home-manager/files/fonts;
       recursive = true; 
+    };
+    ".base16-themes" = {
+      source = ../../modules/home-manager/files/base16-themes;
     };
     ".config/wlogout/icons" = {
       source = ../../modules/home-manager/files/wlogout;

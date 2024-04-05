@@ -25,6 +25,7 @@
     lsd
     lshw
     unzip
+    libnotify
     
     
     symbola
