@@ -2,7 +2,7 @@
 
 pkgs.writeShellScriptBin "themeselector" ''
     # Get user selection for new theme from base16-themes file
-    chosen=$(cat $HOME/.base16-themes | ${pkgs.rofi-wayland}/bin/rofi -show drun)
+    chosen=$(cat $HOME/.base16-themes | ${pkgs.rofi-wayland}/bin/rofi -dmenu)
     
     # Exit if none chosen.
     [ -z "$chosen" ] && exit
