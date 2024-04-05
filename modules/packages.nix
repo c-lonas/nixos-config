@@ -13,6 +13,7 @@
     dropbox
     firefox
     wofi
+    rofi-wayland
     neofetch
     curl
     wget

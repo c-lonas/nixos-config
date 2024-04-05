@@ -38,6 +38,7 @@ in
     (import ../../scripts/wallsetter.nix { inherit pkgs; })
     (import ../../scripts/themechange.nix { inherit pkgs; })
     (import ../../scripts/themeselector.nix { inherit pkgs; })
+    (import ../../scripts/rofi-launcher.nix { inherit pkgs; })
 
   ];
 
