@@ -1,7 +1,7 @@
 let 
-    theme = "everforest-dark-hard";
+    theme = "gruvbox-dark-hard";
 in {
 
     # Define Theme
-    theme = "${theme}";
+    theme = "gruvbox-dark-hard";
 }
