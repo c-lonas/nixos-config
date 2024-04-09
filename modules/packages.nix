@@ -19,6 +19,7 @@
     wget
     btop
     obsidian
+    discord
     waybar
     swww
     polkit_gnome
