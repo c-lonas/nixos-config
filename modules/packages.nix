@@ -4,7 +4,6 @@
   
   # List system packages
   environment.systemPackages = with pkgs; [
-
     git
     vim
     neovim
@@ -28,7 +27,6 @@
     lshw
     unzip
     libnotify
-    
     
     symbola
     font-awesome
