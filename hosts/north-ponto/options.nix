@@ -1,7 +1,7 @@
 let 
-    theme = "gruvbox-dark-hard";
+    theme = "catppuccin-mocha";
 in {
 
     # Define Theme
-    theme = "gruvbox-dark-hard";
+    theme = "catppuccin-mocha";
 }

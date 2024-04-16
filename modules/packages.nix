@@ -14,6 +14,7 @@
     wofi
     rofi-wayland
     neofetch
+    cmatrix
     curl
     wget
     btop
