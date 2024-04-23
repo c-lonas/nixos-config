@@ -1,4 +1,4 @@
 {
     # Define Theme
-    theme = "catppuccin-mocha";
+    theme = "everforest-dark-hard";
 }
