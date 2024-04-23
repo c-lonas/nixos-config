@@ -8,7 +8,7 @@ pkgs.writeShellScriptBin "wallsetter" ''
     WALLPAPER2="/home/battery/nix-magenta.png"
 
 
-    if [ -d ${WALLPAPER_DIR} ]; then
+    if [ -d $WALLPAPER_DIR ]; then
         echo "Found wallpaper directory!"
     else
         echo "Can't find wallpaper directory :("
