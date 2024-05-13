@@ -20,6 +20,7 @@
     btop
     obsidian
     discord
+    steam
     waybar
     swww
     polkit_gnome
