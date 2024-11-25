@@ -7,6 +7,9 @@
       ../../users.nix
   ];
 
+  # Hostname definition
+  networking.hostName = "south-ponto"; 
+
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   
@@ -14,9 +17,7 @@
     chase = import ../../home/chase.nix ;
     #  joelyn = import ../../home/joelyn.nix;
   };
-  
 
-  networking.hostName = "south-ponto"; # Define your hostname.
 
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
