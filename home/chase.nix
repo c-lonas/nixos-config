@@ -8,10 +8,22 @@
         starship
     ];
 
-
+    # Enable Home Manager
     programs.home-manager.enable = true;
 
+    # Enable Bash
+    programs.bash = {
+        enable = true;
+        enableCompletion = true;
+        initExtra = ''
+            if [ -f ~/.config/starship.toml ]; then
+                eval "$(starship init bash)"
+            fi
+        '';
+    };
 
+
+    # Enable Starship
     programs.starship.enable = true;
 
     programs.starship.settings = {
