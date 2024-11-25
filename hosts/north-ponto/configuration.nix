@@ -8,13 +8,13 @@
   ];
 
   # Hostname definition
-  networking.hostName = "south-ponto"; 
+  networking.hostName = "north-ponto"; 
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   
   home-manager.users = {
-    admin = import ../../home/admin.nix ; 
+    admin = import ../../home/admin.nix ;
     chase = import ../../home/chase.nix ;
 
     #  joelyn = import ../../home/joelyn.nix;
@@ -58,4 +58,5 @@
   system.stateVersion = "24.05"; # Don't change: see man configuration.nix, or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion
 
 }
+
 

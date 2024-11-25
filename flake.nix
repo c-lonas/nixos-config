@@ -14,6 +14,8 @@
   in
   {
     nixosConfigurations = {
+
+      ############## south-ponto ###############
       south-ponto = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -23,6 +25,21 @@
           home-manager.nixosModules.home-manager 
         ];
       };
+
+
+      ############## north-ponto ###############
+      north-ponto = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./hosts/north-ponto/configuration.nix
+          home-manager.nixosModules.home-manager 
+        ];
+      };
+
+
+
     };
   };
 }
