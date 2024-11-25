@@ -6,7 +6,6 @@
         
         chase = {
             isNormalUser = true;
-            #home = "/home/chase";
             extraGroups = [ "wheel" "networkmanager" "docker" ];
             packages = with pkgs; [
                 firefox
@@ -17,7 +16,6 @@
 
         joelyn = {
             isNormalUser = true;
-            #home = "/home/joelyn";
             extraGroups = [ "docker" ];
             packages = with pkgs; [
                 firefox
