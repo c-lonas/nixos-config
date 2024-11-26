@@ -2,7 +2,6 @@
 
 {
 
-
   nix.settings.experimental-features= [ "nix-command" "flakes" ];
 
   nixpkgs.config.allowUnfree = true;
@@ -10,19 +9,45 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+
+    # Text Editors
     vim 
+    
+    # VCS
     git
+
+    # Utilities
     wget
     curl
-    htop
+    fzf
     bc
     jq
+    rsync
+    plocate
+
+    # Monitoring
+    htop
+    btop
+
+    # Archives
     zip
+    unzip
+    gnutar
+
+    # Networking
+    dnsutils
+    socat
     nmap
     traceroute
-    dstat
     lsof
-    
+
+    # Misc
+    which
+    tree
+    gnused
+    gawk
+    file
+
   ];
 
   # Use the systemd-boot EFI boot loader.
