@@ -15,6 +15,11 @@ nixos-config
 # To-Do
 
 * Set root user account w/ hashedPassword
+* Vault for dynamic SSH keys? Could just bite the python bullet and use ansible (private repo)
+* DNS / Networking configuration
+  * CoreDNS | BIND | Other
+  * NetworkManager configuration?
+* DE / WM custom option
 
 # Annoyances
 
