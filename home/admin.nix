@@ -1,15 +1,38 @@
-{ config, pkgs, ... }:
+{ config, pkgs, hostSystemProfile, ... }:
 
+with pkgs;
+let
+  minimalPackages =  [
+    neovim
+    starship
+    cbonsai
+  ];
+
+  lightweightPackages = minimalPackages ++ [
+    cmatrix
+  ];
+
+  fullPackages = lightweightPackages ++ [
+    lolcat
+  ];
+
+  # Select the appropriate package set based on hostSystemProfile
+  selectedPackages = if hostSystemProfile == "minimal" then
+    minimalPackages
+  else if hostSystemProfile == "lightweight" then
+    lightweightPackages
+  else if hostSystemProfile == "full" then
+    fullPackages
+  else
+    minimalPackages;  # Default to minimal 
+
+in
 {
     home.username = "admin";
     home.homeDirectory = "/home/admin";
 
-    home.packages = with pkgs; [
-        starship
-    ];
+    home.packages = selectedPackages;
 
-    # Enable Home Manager
-    programs.home-manager.enable = true;
 
     # Enable Bash
     programs.bash = {

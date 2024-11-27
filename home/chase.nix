@@ -1,15 +1,41 @@
-{ config, pkgs, ... }:
+{ config, pkgs, hostSystemProfile, ... }:
 
+with pkgs;
+let
+  minimalPackages =  [
+    neovim
+    starship
+    cbonsai
+    dropbox
+  ];
+
+  lightweightPackages = minimalPackages ++ [
+    discord
+    cmatrix
+    obsidian
+  ];
+
+  fullPackages = lightweightPackages ++ [
+    lolcat
+    steam
+  ];
+
+  # Select the appropriate package set based on hostSystemProfile
+  selectedPackages = if hostSystemProfile == "minimal" then
+    minimalPackages
+  else if hostSystemProfile == "lightweight" then
+    lightweightPackages
+  else if hostSystemProfile == "full" then
+    fullPackages
+  else
+    minimalPackages;  # Default to minimal
+
+in
 {
     home.username = "chase";
     home.homeDirectory = "/home/chase";
 
-    home.packages = with pkgs; [
-        starship
-    ];
-
-    # Enable Home Manager
-    programs.home-manager.enable = true;
+    home.packages = selectedPackages;
 
     # Enable Bash
     programs.bash = {
@@ -20,47 +46,6 @@
                 eval "$(starship init bash)"
             fi
         '';
-    };
-
-
-    # Enable Starship
-    programs.starship.enable = true;
-
-    programs.starship.settings = {
-        directory = {
-            truncate_to_repo = false;
-        };
-
-        git_branch = {
-            symbol = "  "; 
-            format = "[$symbol$branch]($style) ";
-        };
-
-        format = 
-            "$sudo" +
-            "$directory" +
-            "$username" +
-            "$hostname" +
-            "$kubernetes" +
-            "$docker_context" +
-            "$package" +
-            "$c" +
-            "$dotnet" +
-            "$gleam" +
-            "$golang" +
-            "$nodejs" +
-            "$python" +
-            "$rust" +
-            "$terraform" +
-            "$nix_shell" +
-            "$aws" +
-            "$gcloud" +
-            "$openstack" +
-            "$azure" +
-            "$git_branch" +
-            "$container" +
-            "$jobs" +
-            "\n$character";
     };
 
     home.stateVersion = "25.05";

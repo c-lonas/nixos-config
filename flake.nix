@@ -22,7 +22,7 @@
         };
         modules = [
           ./hosts/south-ponto/configuration.nix
-          home-manager.nixosModules.home-manager 
+          home-manager.nixosModules.home-manager
         ];
       };
 
@@ -34,7 +34,7 @@
         };
         modules = [
           ./hosts/north-ponto/configuration.nix
-          home-manager.nixosModules.home-manager 
+          home-manager.nixosModules.home-manager
         ];
       };
 
