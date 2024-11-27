@@ -36,6 +36,7 @@ in
     home.homeDirectory = "/home/chase";
 
     home.packages = selectedPackages;
+    home.sessionVariables = { HOST_SYSTEM_PROFILE = config.hostSystemProfile; }; 
 
     # Enable Bash
     programs.bash = {

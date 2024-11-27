@@ -23,13 +23,10 @@
 
     # Set hostSystemProfile option
     hostSystemProfile = "lightweight";
-
-   # Expose hostSystemProfile as an environment variable
-    environment.sessionVariables.HOST_SYSTEM_PROFILE = config.hostSystemProfile; # Troubleshoot this later. PAM? 
     
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
-    
+
     home-manager.users = {
       admin = import ../../home/admin.nix {
         inherit config pkgs;
