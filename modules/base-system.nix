@@ -50,6 +50,12 @@
 
   ];
 
+  # These addresses need to match the values set in each host's configuration.nix
+  networking.hosts = {
+    "192.168.1.6" = ["south-ponto"];
+    "192.168.1.7" = ["north-ponto"];
+  };
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

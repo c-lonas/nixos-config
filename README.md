@@ -19,7 +19,7 @@ nixos-config
 * DNS / Networking configuration
   * CoreDNS | BIND | Other
   * NetworkManager configuration?
-* DE / WM custom option
+* DE / WM custom option 
 
 # Annoyances
 
