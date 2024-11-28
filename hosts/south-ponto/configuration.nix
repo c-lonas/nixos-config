@@ -42,6 +42,7 @@
 
     networking = {
       networkmanager.enable = true;
+      useDHCP = false;
       interfaces.wlp0s20f3.ipv4.addresses = [{
         address = "192.168.1.6";
         prefixLength = 24;
