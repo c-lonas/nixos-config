@@ -43,9 +43,9 @@ in
         enable = true;
         enableCompletion = true;
         initExtra = ''
-            if [ -f ~/.config/starship.toml ]; then
-                eval "$(starship init bash)"
-            fi
+          if command -v starship > /dev/null 2>&1; then
+              eval "$(starship init bash)"
+          fi
         '';
     };
 
