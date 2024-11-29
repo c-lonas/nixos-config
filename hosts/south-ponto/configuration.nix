@@ -40,18 +40,7 @@
     };
 
 
-    networking = {
-      networkmanager.enable = true;
-      useDHCP = false;
-      interfaces.wlp0s20f3.ipv4.addresses = [{
-        address = "192.168.1.6";
-        prefixLength = 24;
-      }];
-      defaultGateway = {
-        address = "192.168.1.1";
-        interface = "wlp0s20f3";
-      };
-    }; 
+    networking.networkmanager.enable = true;
 
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";

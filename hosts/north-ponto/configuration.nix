@@ -42,18 +42,7 @@
       };
     };
 
-    networking = {
-      networkmanager.enable = true;
-      useDHCP = false;
-      interfaces.wlp61s0.ipv4.addresses = [{
-        address = "192.168.1.7";
-        prefixLength = 24;
-      }];
-      defaultGateway = {
-        address = "192.168.1.1";
-        interface = "wlp61s0";
-      };
-    }; 
+    networking.networkmanager.enable = true;
 
     # Configure network proxy if necessary
     # networking.proxy.default = "http://user:password@proxy:port/";
