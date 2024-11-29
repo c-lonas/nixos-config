@@ -3,8 +3,9 @@
 {
   imports = [
       ./hardware-configuration.nix
-      ../../modules/base-system.nix
       ../../users.nix
+      ../../modules/base-system.nix
+      ../../modules/dewm/kde-plasma.nix
   ];
 
   options = {
@@ -17,16 +18,12 @@
 
   config = {
 
-  
     # Hostname definition
     networking.hostName = "north-ponto"; 
 
     # Set hostSystemProfile option
     hostSystemProfile = "lightweight";
 
-   # Expose hostSystemProfile as an environment variable
-    environment.sessionVariables.HOST_SYSTEM_PROFILE = config.hostSystemProfile; # Troubleshoot this later. PAM? 
-    
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
     
@@ -43,30 +40,6 @@
     };
 
     networking.networkmanager.enable = true;
-
-    # Enable the X11 windowing system.
-    services.xserver.enable = true;
-
-    # Configure keymap in X11
-    services.xserver.xkb.layout = "us";
-
-    # Enable XFCE desktop environment to start with
-    services.xserver.desktopManager.xfce.enable = true;
-    services.displayManager.defaultSession = "xfce";
-
-    # Enable picom 
-    services.picom = {
-      enable = true;
-      fade = true;
-      inactiveOpacity = 0.9;
-      shadow = true;
-      fadeDelta = 4;
-    };
-
-    # Copy the NixOS configuration file and link it from the resulting system
-    # (/run/current-system/configuration.nix). This is useful in case you
-    # accidentally delete configuration.nix.
-    # system.copySystemConfiguration = true;
 
     # This option defines the first version of NixOS you have installed on this particular machine,
     # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

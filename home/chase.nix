@@ -2,6 +2,7 @@
 
 with pkgs;
 let
+
   minimalPackages =  [
     neovim
     starship
@@ -20,8 +21,9 @@ let
     steam
   ];
 
+
   # Select the appropriate package set based on hostSystemProfile
-  selectedPackages = if hostSystemProfile == "minimal" then
+  systemProfilePackages = if hostSystemProfile == "minimal" then
     minimalPackages
   else if hostSystemProfile == "lightweight" then
     lightweightPackages
@@ -30,24 +32,27 @@ let
   else
     minimalPackages;  # Default to minimal
 
+  userPackages = systemProfilePackages; # Assuming I may need to add additional packages for dw/wm to systemProfilePackages
+
 in
 {
-    home.username = "chase";
-    home.homeDirectory = "/home/chase";
+  home.username = "chase";
+  home.homeDirectory = "/home/chase";
 
-    home.packages = selectedPackages;
-    home.sessionVariables = { HOST_SYSTEM_PROFILE = config.hostSystemProfile; }; 
+  home.packages = userPackages;
+  home.sessionVariables = { HOST_SYSTEM_PROFILE = config.hostSystemProfile; }; 
 
-    # Enable Bash
-    programs.bash = {
-        enable = true;
-        enableCompletion = true;
-        initExtra = ''
-          if command -v starship > /dev/null 2>&1; then
-              eval "$(starship init bash)"
-          fi
-        '';
-    };
 
-    home.stateVersion = "25.05";
+  # Enable Bash
+  programs.bash = {
+      enable = true;
+      enableCompletion = true;
+      initExtra = ''
+        if command -v starship > /dev/null 2>&1; then
+            eval "$(starship init bash)"
+        fi
+      '';
+  };
+
+  home.stateVersion = "25.05";
 }

@@ -7,7 +7,7 @@
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
 
-  # Enable XFCE desktop environment to start with
+  # Enable XFCE desktop environment
   services.xserver.desktopManager.xfce.enable = true;
   services.displayManager.defaultSession = "xfce";
 

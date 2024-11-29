@@ -16,6 +16,9 @@
     # VCS
     git
 
+    # Terminals
+    kitty 
+
     # Utilities
     wget
     curl

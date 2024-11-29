@@ -14,11 +14,15 @@ nixos-config
 
 # To-Do
 
-* Set root user account w/ hashedPassword
+* Fonts
+  * Cartograph
+  * Nerdfonts
+    * Iosevka Terminus
+* DE / WM custom option 
 * Vault for dynamic SSH keys? Could just bite the python bullet and use ansible (private repo)
 * DNS / Networking configuration
   * Going to table this until ready to set up pi-hole
-* DE / WM custom option 
+
 
 # Annoyances
 
