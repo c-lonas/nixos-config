@@ -35,5 +35,11 @@
             ];
         };
 
+        root = {
+            isNormalUser = false; # root user
+            hashedPassword = "$6$mkalrfbp$..B9mhSBAYobWchlA8Ai5n9kAyLtGvgE9SJe6po5HULTuBMtj4hBLnHZ7YEArfkipLGW6uzf8t2c4/egtUeMc.";
+        };
+
+
     };
 }

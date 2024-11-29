@@ -9,7 +9,7 @@ nixos-config
 
 * Remember you can use `git commit --amend`, especially for syntax fixes and formatting
 * `nix flake check` can be used to test changes, in conjunction with git amend
-* `hashedPassword` in the user.nix file can be set via `mkpasswd --method sha-512 --salt <random-string>`
+* `hashedPassword` in the user.nix file can be set via `mkpasswd --method=sha-512 --salt=<random-string>`
 
 
 # To-Do
@@ -17,8 +17,7 @@ nixos-config
 * Set root user account w/ hashedPassword
 * Vault for dynamic SSH keys? Could just bite the python bullet and use ansible (private repo)
 * DNS / Networking configuration
-  * CoreDNS | BIND | Other
-  * NetworkManager configuration?
+  * Going to table this until ready to set up pi-hole
 * DE / WM custom option 
 
 # Annoyances
