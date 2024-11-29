@@ -2,9 +2,10 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
-    ../../modules/base-system.nix
+    ./hardware-configuration.nix   
     ../../users.nix
+    ../../modules/base-system.nix
+    ../../modules/dewm/gnome.nix
   ];
 
   options = {
@@ -41,31 +42,6 @@
 
 
     networking.networkmanager.enable = true;
-
-    # Configure network proxy if necessary
-    # networking.proxy.default = "http://user:password@proxy:port/";
-    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-    # Enable the X11 windowing system.
-    services.xserver.enable = true;
-
-    # Configure keymap in X11
-    services.xserver.xkb.layout = "us";
-
-    # Enable XFCE desktop environment to start with
-    services.xserver.desktopManager.xfce.enable = true;
-    services.displayManager.defaultSession = "xfce";
-
-    # Enable picom 
-    services.picom = {
-      enable = true;
-      fade = true;
-      inactiveOpacity = 0.9;
-      shadow = true;
-      fadeDelta = 4;
-    };
-
-
 
     # Copy the NixOS configuration file and link it from the resulting system
     # (/run/current-system/configuration.nix). This is useful in case you
