@@ -1,11 +1,18 @@
 { config, lib, pkgs, ... }:
 
+
+let
+  hostname = "south-ponto";
+  hostOptions = import ../host-options.nix;
+  currentHostOptions = hostOptions.${hostname};
+  dewmModule = ../../modules/dewm/${currentHostOptions.dewm}.nix;
+in
 {
   imports = [
     ./hardware-configuration.nix   
     ../../users.nix
     ../../modules/base-system.nix
-    ../../modules/dewm/kde-plasma.nix
+    dewmModule
   ];
 
   options = {
@@ -22,11 +29,11 @@
   config = {
 
     # Hostname definition
-    networking.hostName = "south-ponto"; 
+    networking.hostName = hostname; 
 
     # Set hostSystemProfile option
-    hostSystemProfile = "lightweight";
-    
+    hostSystemProfile = currentHostOptions.hostSystemProfile;
+
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
 
