@@ -6,8 +6,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # Packages installed in system profile.
   environment.systemPackages = with pkgs; [
 
     # Text Editors
@@ -53,6 +52,15 @@
 
   ];
 
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-emoji
+    iosevka
+    terminus-nerdfont
+    (nerdfonts.override { fonts = [ "Iosevka" "Terminus" ]; })
+  ];
+
+
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -97,7 +105,7 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
-    font = "Lat2-Terminus16";
+    font = "Lat2-Terminus32";
     keyMap = "us";
   };
 
