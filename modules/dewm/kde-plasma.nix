@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   # Enable the X11 windowing system.
@@ -10,5 +10,11 @@
   # Enable KDE Plasma desktop environment
   services.xserver.desktopManager.plasma5.enable = true;
   services.displayManager.defaultSession = "plasma";
+
+
+  # Example system packages
+  environment.systemPackages = with pkgs; [
+    lolcat
+  ];
 
 }
