@@ -43,6 +43,10 @@ in
   home.sessionVariables = { HOST_SYSTEM_PROFILE = config.hostSystemProfile; }; 
 
 
+  imports = [
+    ../modules/home-manager/status-bar/waybar.nix
+  ];
+
   # Enable Bash
   programs.bash = {
       enable = true;

@@ -18,7 +18,7 @@
   };
 
   "south-ponto" = {
-    dewm = "kde-plasma";
+    dewm = "sway";
     hostSystemProfile = "lightweight";
   };
 }
