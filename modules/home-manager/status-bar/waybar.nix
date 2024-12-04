@@ -20,6 +20,13 @@ let
     }
   '';
 in {
+
+  home.packages = with pkgs; [
+    waybar
+  ];
+
+  programs.waybar.enable = true;
+
   home.file = {
     ".config/waybar/config" = {
       text = waybarConfig;
@@ -29,7 +36,5 @@ in {
     };
   };
 
-  home.packages = with pkgs; [
-    waybar
-  ];
+
 }

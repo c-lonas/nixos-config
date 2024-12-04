@@ -1,11 +1,18 @@
 { config, lib, pkgs, ... }:
 
+let
+  hostname = "north-ponto";
+  hostOptions = import ../host-options.nix;
+  currentHostOptions = hostOptions.${hostname};
+  dewmModule = ../../modules/dewm/${currentHostOptions.dewm}.nix;
+  dewmHomeModule = ../../modules/home-manager/home-dewm/${currentHostOptions.dewm}.nix;
+in
 {
   imports = [
       ./hardware-configuration.nix
       ../../users.nix
       ../../modules/base-system.nix
-      ../../modules/dewm/kde-plasma.nix
+      dewmModule
   ];
 
   options = {
@@ -22,7 +29,7 @@
     networking.hostName = "north-ponto"; 
 
     # Set hostSystemProfile option
-    hostSystemProfile = "lightweight";
+    hostSystemProfile = currentHostOptions.hostSystemProfile;
 
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
@@ -31,11 +38,13 @@
       admin = import ../../home/admin.nix {
         inherit config pkgs;
         hostSystemProfile = config.hostSystemProfile; 
+        dewmHomeModule = dewmHomeModule;
       };
 
       chase = import ../../home/chase.nix {
         inherit config pkgs;
         hostSystemProfile = config.hostSystemProfile; 
+        dewmHomeModule = dewmHomeModule;
       };
     };
 

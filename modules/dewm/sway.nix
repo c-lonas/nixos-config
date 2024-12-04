@@ -2,11 +2,6 @@
 
 {
 
-  # Do a test and make sure imports from the dewm entrypoints are working
-  # imports = [
-  #   ../../additional/file-manager.nix 
-  #   ../../additional/terminal.nix    
-  # ];
 
   # Enable sway
   programs.sway.enable = true;
@@ -23,12 +18,6 @@
   environment.systemPackages = with pkgs; [
     sddm
     sway
-    waybar
   ];
-
-  services.waybar = {
-    enable = true;
-    package = pkgs.waybar;
-  };
 
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, hostSystemProfile, ... }:
+{ config, pkgs, hostSystemProfile, dewmHomeModule, ... }:
 
 with pkgs;
 let
@@ -44,7 +44,7 @@ in
 
 
   imports = [
-    ../modules/home-manager/status-bar/waybar.nix
+    dewmHomeModule
   ];
 
   # Enable Bash

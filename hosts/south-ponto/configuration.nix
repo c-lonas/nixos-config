@@ -6,6 +6,7 @@ let
   hostOptions = import ../host-options.nix;
   currentHostOptions = hostOptions.${hostname};
   dewmModule = ../../modules/dewm/${currentHostOptions.dewm}.nix;
+  dewmHomeModule = ../../modules/home-manager/home-dewm/${currentHostOptions.dewm}.nix;
 in
 {
   imports = [
@@ -34,6 +35,8 @@ in
     # Set hostSystemProfile option
     hostSystemProfile = currentHostOptions.hostSystemProfile;
 
+    # Set dewmHomeModule
+
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
 
@@ -41,11 +44,13 @@ in
       admin = import ../../home/admin.nix {
         inherit config pkgs;
         hostSystemProfile = config.hostSystemProfile;
+        dewmHomeModule = dewmHomeModule;
       };
 
       chase = import ../../home/chase.nix {
         inherit config pkgs;
         hostSystemProfile = config.hostSystemProfile;
+        dewmHomeModule = dewmHomeModule;
       };
     };
 
