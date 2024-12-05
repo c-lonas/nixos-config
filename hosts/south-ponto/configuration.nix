@@ -3,6 +3,7 @@
 
 let
   hostname = "south-ponto";
+  userOptions = import ../../home/user-options.nix;
   hostOptions = import ../host-options.nix;
   currentHostOptions = hostOptions.${hostname};
   dewmModule = ../../modules/dewm/${currentHostOptions.dewm}.nix;
@@ -11,8 +12,9 @@ in
 {
   imports = [
     ./hardware-configuration.nix   
-    ../../users.nix
+    ../../modules/users.nix
     ../../modules/base-system.nix
+    ../../modules/theming/stylix.nix
     dewmModule
   ];
 
@@ -35,22 +37,23 @@ in
     # Set hostSystemProfile option
     hostSystemProfile = currentHostOptions.hostSystemProfile;
 
-    # Set dewmHomeModule
-
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
 
+
     home-manager.users = {
-      admin = import ../../home/admin.nix {
+      admin = import ../../home/users/admin.nix {
         inherit config pkgs;
         hostSystemProfile = config.hostSystemProfile;
         dewmHomeModule = dewmHomeModule;
+        base16ThemeChoice = userOptions.admin.base16-theme;
       };
 
-      chase = import ../../home/chase.nix {
+      chase = import ../../home/users/chase.nix {
         inherit config pkgs;
         hostSystemProfile = config.hostSystemProfile;
         dewmHomeModule = dewmHomeModule;
+        base16ThemeChoice = userOptions.chase.base16-theme;
       };
     };
 

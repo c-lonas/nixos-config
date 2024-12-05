@@ -4,7 +4,7 @@
 
   imports = [
     ../status-bar/waybar.nix
-    # ../terminal/kitty.nix
+    ../terminal/kitty.nix
   ];
 
   wayland.windowManager.sway = {

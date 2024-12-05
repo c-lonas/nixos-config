@@ -10,15 +10,23 @@
 # user packages should be installed on a given host
 
 
+################ Base16 System Theme #################
+# This option is not currently in use- it coud be 
+# passed into /modules/theming/stylix.nix to set
+# the system theme (used by the bootloader such before
+# a user session is initiated) on a per-host basis
+
 
 {
   "north-ponto" = {
     dewm = "kde-plasma";
     hostSystemProfile = "lightweight";
+    base16SystemTheme = "ayu-dark";
   };
 
   "south-ponto" = {
-    dewm = "sway";
+    dewm = "kde-plasma";
     hostSystemProfile = "lightweight";
+    base16SystemTheme = "ayu-dark";
   };
 }
