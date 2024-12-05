@@ -5,9 +5,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: 
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -23,6 +24,7 @@
         modules = [
           ./hosts/south-ponto/configuration.nix
           home-manager.nixosModules.home-manager
+          stylix.nixosModules.stylix
         ];
       };
 
@@ -35,6 +37,7 @@
         modules = [
           ./hosts/north-ponto/configuration.nix
           home-manager.nixosModules.home-manager
+          stylix.nixosModules.stylix
         ];
       };
 

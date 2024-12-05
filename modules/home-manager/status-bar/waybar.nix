@@ -3,22 +3,35 @@
 let
   waybarConfig = ''
     {
-      "height": 30,
       "layer": "top",
-      "position": "top",
-      "modules-left": ["network", "cpu", "memory"],
-      "modules-right": ["clock", "tray"]
+      "modules-left": ["sway/workspaces", "sway/mode", "tray", "sway/taskbar"],
+      "modules-center": ["sway/window"],
+      "modules-right": ["cpu", "memory", "disk", "network", "battery", "clock"],
+      "sway/window": {
+        "max-length": 50
+      },
+      "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+      },
+      "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+      },
+      "cpu": {
+        "format": "CPU {usage}%"
+      },
+      "disk": {
+        "format": "DISK {percentage_used}%"
+      },
+      "memory": {
+        "format": "MEM {percentage}%"
+      },
     }
   '';
-  waybarStyle = ''
-    * {
-      font-family: "Sans";
-      color: #ffffff;
-    }
-    .clock {
-      color: #ffcc00;
-    }
-  '';
+
+
+
+  
 in {
 
   home.packages = with pkgs; [
@@ -31,9 +44,9 @@ in {
     ".config/waybar/config" = {
       text = waybarConfig;
     };
-    ".config/waybar/style.css" = {
-      text = waybarStyle;
-    };
+    # ".config/waybar/style.css" = {
+    #   text = waybarStyle;
+    # };
   };
 
 

@@ -1,4 +1,4 @@
-{ config, pkgs, hostSystemProfile, ... }:
+{ config, pkgs, hostSystemProfile, dewmHomeModule, base16ThemeChoice, ... }:
 
 with pkgs;
 let
@@ -17,7 +17,7 @@ let
   ];
 
   # Select the appropriate package set based on hostSystemProfile
-  selectedPackages = if hostSystemProfile == "minimal" then
+  systemProfilePackages = if hostSystemProfile == "minimal" then
     minimalPackages
   else if hostSystemProfile == "lightweight" then
     lightweightPackages
@@ -26,13 +26,22 @@ let
   else
     minimalPackages;  # Default to minimal 
 
+  userPackages = systemProfilePackages; # Assuming I may need to add additional packages for dw/wm to systemProfilePackages
+
 in
 {
   home.username = "admin";
   home.homeDirectory = "/home/admin";
 
-  home.packages = selectedPackages;
+  home.packages = userPackages;
+  home.sessionVariables = { HOST_SYSTEM_PROFILE = config.hostSystemProfile; }; 
 
+
+  imports = [
+    dewmHomeModule
+  ];
+
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${base16ThemeChoice}.yaml";
 
   # Enable Bash
   programs.bash = {

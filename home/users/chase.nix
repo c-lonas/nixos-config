@@ -1,4 +1,4 @@
-{ config, pkgs, hostSystemProfile, dewmHomeModule, ... }:
+{ config, pkgs, hostSystemProfile, dewmHomeModule,  base16ThemeChoice, ... }:
 
 with pkgs;
 let
@@ -46,6 +46,8 @@ in
   imports = [
     dewmHomeModule
   ];
+
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${base16ThemeChoice}.yaml";
 
   # Enable Bash
   programs.bash = {
