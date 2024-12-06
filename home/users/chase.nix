@@ -1,4 +1,4 @@
-{ config, pkgs, hostSystemProfile, dewmHomeModule,  base16ThemeChoice, ... }:
+{ inputs, config, pkgs, hostSystemProfile, dewmHomeModule, base16ThemeChoice, ... }:
 
 with pkgs;
 let
@@ -32,8 +32,9 @@ let
   else
     minimalPackages;  # Default to minimal
 
-  userPackages = systemProfilePackages; # Assuming I may need to add additional packages for dw/wm to systemProfilePackages
+  userPackages = systemProfilePackages; # Assuming I may need to add additional packages for de/wm to systemProfilePackages
 
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in
 {
   home.username = "chase";
@@ -59,6 +60,19 @@ in
         fi
       '';
   };
+
+  # Spicetify
+  programs.spicetify =
+    {
+      enable = true;
+      # enabledExtensions = with spicePkgs.extensions; [
+      #   adblock
+      #   hidePodcasts
+      #   shuffle # shuffle+ (special characters are sanitized out of extension names)
+      # ];
+      # theme = spicePkgs.themes.catppuccin;
+      # colorScheme = "mocha";
+    };
 
   home.stateVersion = "25.05";
 }

@@ -5,6 +5,8 @@
   imports = [
     ../status-bar/waybar.nix
     ../terminal/kitty.nix
+    ../music/spicetify.nix
+    ../launcher/rofi.nix
   ];
 
   wayland.windowManager.sway = {

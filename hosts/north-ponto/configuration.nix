@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
   hostname = "north-ponto";
@@ -45,7 +45,7 @@ in
       };
 
       chase = import ../../home/users/chase.nix {
-        inherit config pkgs;
+        inherit inputs config pkgs;
         hostSystemProfile = config.hostSystemProfile; 
         dewmHomeModule = dewmHomeModule;
         base16ThemeChoice = userOptions.chase.base16-theme;

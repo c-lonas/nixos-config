@@ -34,9 +34,7 @@ let
   
 in {
 
-  home.packages = with pkgs; [
-    waybar
-  ];
+  home.packages = with pkgs; [ waybar ];
 
   programs.waybar.enable = true;
 

@@ -1,4 +1,4 @@
-{ config, pkgs, hostSystemProfile, dewmHomeModule, base16ThemeChoice, ... }:
+{ inputs, config, pkgs, hostSystemProfile, dewmHomeModule, base16ThemeChoice, ... }:
 
 with pkgs;
 let
@@ -26,7 +26,7 @@ let
   else
     minimalPackages;  # Default to minimal 
 
-  userPackages = systemProfilePackages; # Assuming I may need to add additional packages for dw/wm to systemProfilePackages
+  userPackages = systemProfilePackages; # Assuming I may need to add additional packages for de/wm to systemProfilePackages
 
 in
 {

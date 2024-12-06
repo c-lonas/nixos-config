@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 
 let
@@ -37,20 +37,16 @@ in
     # Set hostSystemProfile option
     hostSystemProfile = currentHostOptions.hostSystemProfile;
 
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
-
-
     home-manager.users = {
       admin = import ../../home/users/admin.nix {
-        inherit config pkgs;
+        inherit inputs config pkgs;
         hostSystemProfile = config.hostSystemProfile;
         dewmHomeModule = dewmHomeModule;
         base16ThemeChoice = userOptions.admin.base16-theme;
       };
 
       chase = import ../../home/users/chase.nix {
-        inherit config pkgs;
+        inherit inputs config pkgs;
         hostSystemProfile = config.hostSystemProfile;
         dewmHomeModule = dewmHomeModule;
         base16ThemeChoice = userOptions.chase.base16-theme;
