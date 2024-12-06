@@ -38,7 +38,7 @@ in
     
     home-manager.users = {
       admin = import ../../home/users/admin.nix {
-        inherit config pkgs;
+        inherit inputs config pkgs;
         hostSystemProfile = config.hostSystemProfile; 
         dewmHomeModule = dewmHomeModule;
         base16ThemeChoice = userOptions.admin.base16-theme;

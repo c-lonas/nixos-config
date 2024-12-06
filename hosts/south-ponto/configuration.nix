@@ -11,7 +11,8 @@ let
 in
 {
   imports = [
-    ./hardware-configuration.nix   
+    ./hardware-configuration.nix
+    ./gaming.nix
     ../../modules/users.nix
     ../../modules/base-system.nix
     ../../modules/theming/stylix.nix
@@ -53,13 +54,7 @@ in
       };
     };
 
-    # Not sure if this is where this should be handled
-    programs.steam = {
-      enable = true;
-      remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-      dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-      localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-    };
+
 
     networking.networkmanager.enable = true;
 
