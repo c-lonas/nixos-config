@@ -11,7 +11,7 @@ let
   ];
 
   lightweightPackages = minimalPackages ++ [
-    discord
+    vesktop
     cmatrix
     obsidian
   ];
