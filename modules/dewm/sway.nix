@@ -20,4 +20,7 @@
     sway
   ];
 
+  # For vscode on wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
 }

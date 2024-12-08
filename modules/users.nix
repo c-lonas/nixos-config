@@ -11,7 +11,6 @@
             packages = with pkgs; [
                 firefox
                 vscode
-                tree
             ];
         };
         
@@ -20,8 +19,6 @@
             extraGroups = [ "wheel" "networkmanager" "docker" ];
             packages = with pkgs; [
                 firefox
-                vscode
-                tree
             ];
         };
 

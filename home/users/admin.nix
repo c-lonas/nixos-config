@@ -54,45 +54,45 @@ in
       '';
   };
 
-
   # Enable Starship
-  programs.starship.enable = true;
-
-  programs.starship.settings = {
+  programs.starship = {
+    enable = true;
+    settings = {
       directory = {
-          truncate_to_repo = false;
+        truncate_to_repo = false;
       };
 
       git_branch = {
-          symbol = "  "; 
-          format = "[$symbol$branch]($style) ";
+        symbol = "  "; 
+        format = "[$symbol$branch]($style) ";
       };
 
       format = 
-          "$sudo" +
-          "$directory" +
-          "$username" +
-          "$hostname" +
-          "$kubernetes" +
-          "$docker_context" +
-          "$package" +
-          "$c" +
-          "$dotnet" +
-          "$gleam" +
-          "$golang" +
-          "$nodejs" +
-          "$python" +
-          "$rust" +
-          "$terraform" +
-          "$nix_shell" +
-          "$aws" +
-          "$gcloud" +
-          "$openstack" +
-          "$azure" +
-          "$git_branch" +
-          "$container" +
-          "$jobs" +
-          "\n$character";
+        "$sudo" +
+        "$directory" +
+        "$kubernetes" +
+        "$docker_context" +
+        "$package" +
+        "$c" +
+        "$dotnet" +
+        "$gleam" +
+        "$golang" +
+        "$nodejs" +
+        "$python" +
+        "$rust" +
+        "$terraform" +
+        "$nix_shell" +
+        "$aws" +
+        "$gcloud" +
+        "$openstack" +
+        "$azure" +
+        "$git_branch" +
+        "$container" +
+        "$jobs" +
+        "\n$username" +
+        "$hostname" +
+        "$character";
+    };
   };
 
   home.stateVersion = "25.05";

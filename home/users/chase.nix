@@ -61,6 +61,22 @@ in
       '';
   };
 
+  # VSCode
+  programs.vscode = {
+    enable = true;
+    userSettings = {
+      "editor.tabSize" = 2;
+      "editor.fontSize" = 14;
+      # "editor.fontFamily" = "Iosevka";
+      "terminal.integrated.fontSize" = 14;
+      "terminal.integrated.sendKeybindingsToShell" = true;
+    };
+    extensions = with pkgs.vscode-extensions; [
+      jnoortheen.nix-ide
+      naumovs.color-highlight
+    ];
+  };
+
   # Spicetify
   programs.spicetify = {
     enable = true;
@@ -71,6 +87,47 @@ in
     # ];
     # theme = spicePkgs.themes.catppuccin;
     # colorScheme = "mocha";
+  };
+
+  # Enable Starship
+  programs.starship = {
+    enable = true;
+    settings = {
+      directory = {
+        truncate_to_repo = false;
+      };
+
+      git_branch = {
+        symbol = "  "; 
+        format = "[$symbol$branch]($style) ";
+      };
+
+      format = 
+        "$sudo" +
+        "$directory" +
+        "$kubernetes" +
+        "$docker_context" +
+        "$package" +
+        "$c" +
+        "$dotnet" +
+        "$gleam" +
+        "$golang" +
+        "$nodejs" +
+        "$python" +
+        "$rust" +
+        "$terraform" +
+        "$nix_shell" +
+        "$aws" +
+        "$gcloud" +
+        "$openstack" +
+        "$azure" +
+        "$git_branch" +
+        "$container" +
+        "$jobs" +
+        "\n$username" +
+        "$hostname" +
+        "$character";
+    };
   };
 
   home.stateVersion = "25.05";

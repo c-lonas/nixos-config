@@ -18,6 +18,7 @@
     mangohud
     lutris
     bottles
+    wowup-cf
   ];
 
 }
