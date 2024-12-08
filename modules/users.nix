@@ -17,9 +17,6 @@
         chase = {
             isNormalUser = true;
             extraGroups = [ "wheel" "networkmanager" "docker" ];
-            packages = with pkgs; [
-                firefox
-            ];
         };
 
         joelyn = {

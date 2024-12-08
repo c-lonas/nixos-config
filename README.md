@@ -30,6 +30,12 @@ Finish setting up Stylix
   - [ ] Opacity
   - [ ] Fonts
 
+
+- [ ] Create a terminal option in user-options.nix
+  - [ ] Pass this to rofi.nix for rofi.terminal option
+
+- [ ] Look at custom usb installation options
+
 # Annoyances
 
 * hostSystemProfile setup
