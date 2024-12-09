@@ -58,6 +58,23 @@
       };
 
 
+      ############## la-jolla-cove ###############
+      la-jolla-cove = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./hosts/la-jolla-cove/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = {inherit spicetify-nix;};
+          }
+          stylix.nixosModules.stylix
+        ];
+      };
+
 
     };
   };

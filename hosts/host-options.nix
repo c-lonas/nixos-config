@@ -29,4 +29,10 @@
     hostSystemProfile = "lightweight";
     base16SystemTheme = "ayu-dark";
   };
+
+  "la-jolla-cove" = {
+    dewm = "kde-plasma";
+    hostSystemProfile = "full";
+    base16SystemTheme = "ayu-dark";
+  };
 }

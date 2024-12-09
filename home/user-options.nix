@@ -15,4 +15,8 @@
   "chase" = {
     base16-theme = "rose-pine-moon";
   };
+
+  "kids" = {
+    base16-theme = "dracula";
+  };
 }
