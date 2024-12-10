@@ -11,7 +11,8 @@ let
 in
 {
   imports = [
-    ./hardware-configuration.nix   
+    ./hardware-configuration.nix
+    ./gaming.nix
     ../../modules/users.nix
     ../../modules/base-system.nix
     ../../modules/theming/stylix.nix
